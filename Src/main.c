@@ -54,6 +54,10 @@ static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
+void send_string(char* s)
+{
+	HAL_UART_Transmit(&huart2, (uint8_t*)s, strlen(s), 1000);
+}
 
 /* USER CODE END PFP */
 
