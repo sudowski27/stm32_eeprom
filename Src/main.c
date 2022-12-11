@@ -94,6 +94,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
+  debug_diode_init();
   i2c_init();
   /* USER CODE END Init */
 
