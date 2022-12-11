@@ -130,7 +130,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+      buf[0] = 1;
   }
   /* USER CODE END 3 */
 }
