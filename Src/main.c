@@ -59,6 +59,13 @@ void send_string(char* s)
 	HAL_UART_Transmit(&huart2, (uint8_t*)s, strlen(s), 1000);
 }
 
+int __io_putchar(int ch)
+{
+	if (ch == '\n')
+		send_char('\r');
+	send_char(ch);
+	return ch;
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
