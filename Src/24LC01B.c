@@ -96,7 +96,7 @@ void i2c_master_transmit(uint8_t slave_address, uint8_t *buffer, uint16_t size) 
 
 		buffer ++; // shift pointer to next data
 	}
-	// LL_I2C_NACK  Flag
+	//LL_I2C_IsActiveFlag_AF
 	LL_I2C_GenerateStopCondition(I2C1); // generate a STOP condition after the current byte transfer
 }
 
