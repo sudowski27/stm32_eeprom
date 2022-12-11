@@ -63,12 +63,26 @@ void debug_diode_off(){
 
 void i2c_master_transmit(uint8_t slave_address, uint8_t *buffer, uint16_t size) {
 	// start condition
+	printf("LL_RCC_HSI_IsReady = %d\n", LL_RCC_HSI_IsReady());
+	printf("LL_RCC_HSI_GetCalibration = %d\n", LL_RCC_HSI_GetCalibration());
+	printf("%d\n", LL_I2C_GetPeriphClock(I2C1));
+	printf("LL_I2C_IsEnabled = %d\n", LL_I2C_IsEnabled(I2C1));
+	printf("LL_RCC_GetSysClkSource = %d\n", LL_RCC_GetSysClkSource());
+	printf("LL_RCC_SYS_CLKSOURCE_STATUS_PLL = %d\n", LL_RCC_SYS_CLKSOURCE_STATUS_PLL);
+	printf("LL_RCC_GetAHBPrescaler = %d\n", LL_RCC_GetAHBPrescaler());
+	printf("LL_RCC_GetAPB1Prescaler = %d\n", LL_RCC_GetAPB1Prescaler());
+	printf("LL_RCC_APB1_DIV_2 = %d\n", LL_RCC_APB1_DIV_2);
+	printf("LL_RCC_PLL_GetN = %d\n", LL_RCC_PLL_GetN());
+	LL_I2C_Enable(I2C1);
 	LL_I2C_GenerateStartCondition(I2C1);
-
+	//debug_diode_on();
 	// Indicate the status of Start Bit
-	while(!LL_I2C_IsActiveFlag_SB(I2C1)) {} // when is True escape from this loop
-
+	//printf("%d\n", LL_I2C_IsActiveFlag_SB(I2C1));
+	//while(!LL_I2C_IsActiveFlag_SB(I2C1)) {} // when is True escape from this loop
+	//printf("po while %d\n", LL_I2C_IsActiveFlag_SB(I2C1));
+	//debug_diode_on();
 	LL_I2C_TransmitData8(I2C1, slave_address); // send address of slave
+	printf("LL_I2C_IsActiveFlag_ADDR  = %d\n", LL_I2C_IsActiveFlag_ADDR(I2C1));
 
 	while(!LL_I2C_IsActiveFlag_ADDR(I2C1)) {} // indicate the status of address sent
 
