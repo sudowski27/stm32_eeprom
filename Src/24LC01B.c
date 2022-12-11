@@ -1,6 +1,9 @@
 #include "stm32f4xx_ll_i2c.h"
 #include "stm32f4xx_ll_bus.h"
 #include "stm32f4xx_ll_gpio.h"
+#include "stm32f4xx_ll_usart.h"
+#include "stm32f4xx_ll_rcc.h"
+
 
 void i2c_init() {
 	// Initialize bus
