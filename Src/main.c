@@ -135,6 +135,11 @@ int main(void)
       ret = HAL_I2C_Master_Transmit(&hi2c1, 0xA0, buf, 2, HAL_MAX_DELAY);
       if ( ret != HAL_OK )
             printf("Tx problem \n");
+      else {
+    	  HAL_Delay(1000);
+    	  ret = HAL_I2C_Master_Transmit(&hi2c1, 0xA0, buf, 1, HAL_MAX_DELAY);
+    	  ret = HAL_I2C_Master_Receive(&hi2c1, 0xA0, buf_2, 1, HAL_MAX_DELAY);
+      }
   }
   /* USER CODE END 3 */
 }
