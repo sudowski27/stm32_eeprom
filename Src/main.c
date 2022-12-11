@@ -119,7 +119,7 @@ int main(void)
   uint8_t data = 0x01;
   //send_string("OK");
   //UsartSendData(USART2, "OK", 3)
-  i2c_master_transmit(0x50, &data, 1);
+  //i2c_master_transmit(0x50, &data, 1);
 
   /* USER CODE END 2 */
 
