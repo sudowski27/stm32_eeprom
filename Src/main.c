@@ -66,6 +66,11 @@ int __io_putchar(int ch)
 	send_char(ch);
 	return ch;
 }
+
+void send_char(char c)
+{
+	HAL_UART_Transmit(&huart2, (uint8_t*)&c, 1, 1000);
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
