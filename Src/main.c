@@ -106,14 +106,17 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  // MX_GPIO_Init();
+  MX_GPIO_Init();
   MX_USART2_UART_Init();
-  //MX_I2C1_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  debug_diode_init();
+
   //debug_diode_on();
   //debug_diode_off();
-  master_transmit_24lc01b(0x00, 1);
+  uint8_t data = 0x01;
+  //send_string("OK");
+  //UsartSendData(USART2, "OK", 3)
+  i2c_master_transmit(0x50, &data, 1);
 
   /* USER CODE END 2 */
 
