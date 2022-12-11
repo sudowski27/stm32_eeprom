@@ -23,9 +23,22 @@ void i2c_init() {
 	LL_GPIO_SetAFPin_0_7(GPIOB, LL_GPIO_PIN_8,  LL_GPIO_AF_4);
 
 	// Configure I2C
-	LL_I2C_Enable(I2C1);
+	LL_I2C_InitTypeDef i2c_init;
+	LL_I2C_StructInit(&i2c_init);
+
+	LL_I2C_Disable(I2C1);
 	LL_I2C_SetOwnAddress1(I2C1, 0x00, LL_I2C_OWNADDRESS1_7BIT);
 	LL_I2C_EnableClockStretching(I2C1);
+	LL_I2C_SetPeriphClock(I2C1, 42000000);
+	LL_I2C_SetClockSpeedMode(I2C1, LL_I2C_CLOCK_SPEED_STANDARD_MODE);
+	LL_I2C_ConfigSpeed(I2C1, 42000000, 100000, LL_I2C_DUTYCYCLE_2);
+
+	LL_I2C_SetMode(I2C1, LL_I2C_MODE_I2C);
+
+	LL_I2C_Enable(I2C1);
+
+	if(LL_I2C_IsEnabled(I2C1))
+		debug_diode_off();
 }
 
 
