@@ -98,7 +98,7 @@ int main(void)
 
   /* USER CODE BEGIN Init */
   debug_diode_init();
-  i2c_init();
+  //i2c_init();
   /* USER CODE END Init */
 
   /* Configure the system clock */
