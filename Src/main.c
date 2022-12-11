@@ -140,6 +140,10 @@ int main(void)
     	  ret = HAL_I2C_Master_Transmit(&hi2c1, 0xA0, buf, 1, HAL_MAX_DELAY);
     	  ret = HAL_I2C_Master_Receive(&hi2c1, 0xA0, buf_2, 1, HAL_MAX_DELAY);
       }
+      printf("HAL_OK = %d\n", HAL_OK);
+      printf("ret = %d\n", ret);
+      printf("buf2 = %d\n", buf_2[0]);
+      HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
