@@ -107,3 +107,14 @@ void master_transmit_24lc01b(uint8_t *buffer, uint16_t size) {
 
 	i2c_master_transmit(address, buffer, size);
 }
+
+
+void UsartSendData(USART_TypeDef* UART_PORT, uint8_t* framePtr, uint16_t frameSize)
+{
+  uint16_t dataCounter = 0;
+  while (dataCounter<frameSize)
+  {
+    //while (!CHECK_IF_DATA_SEND_UART_FINISHED(UART_PORT)) { }
+    LL_USART_TransmitData8(UART_PORT,*(uint8_t*)(framePtr + (dataCounter++)));
+  }
+}
