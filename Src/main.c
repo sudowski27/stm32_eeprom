@@ -133,6 +133,8 @@ int main(void)
       buf[0] = 1;
       buf[1] = 123;
       ret = HAL_I2C_Master_Transmit(&hi2c1, 0xA0, buf, 2, HAL_MAX_DELAY);
+      if ( ret != HAL_OK )
+            printf("Tx problem \n");
   }
   /* USER CODE END 3 */
 }
