@@ -131,6 +131,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
       buf[0] = 1;
+      buf[1] = 123;
   }
   /* USER CODE END 3 */
 }
